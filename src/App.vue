@@ -1,29 +1,24 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div id="app" class="my-widget">
+    <nav-header></nav-header>
+    <items :query="query" />
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
-
+import Vue from 'vue'
+import NavHeader from '@/components/NavHeader.vue'
+import Items from '@/components/Items.vue'
 export default Vue.extend({
-  name: 'App',
-  components: {
-    HelloWorld
+  components: { NavHeader, Items },
+  props: {
+    query: String
   }
-});
+})
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.my-widget {
+  overflow: auto;
 }
 </style>
